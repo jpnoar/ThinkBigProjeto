@@ -75,6 +75,18 @@ public class Criar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1130, 650));
         setResizable(false);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
@@ -207,7 +219,9 @@ public class Criar extends javax.swing.JFrame {
     }//GEN-LAST:event_inputVisualizacaoMouseClicked
 
     private void inputVisualizacaoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputVisualizacaoItemStateChanged
-
+        
+        
+        
         switch(inputVisualizacao.getSelectedIndex()){
             case 0:
                 v.trocarParaPaisagem();
@@ -230,6 +244,14 @@ public class Criar extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_inputVisualizacaoItemStateChanged
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        inputNomePlanta.setText("");
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        inputNomePlanta.setText("");
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments

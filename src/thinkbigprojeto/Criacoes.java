@@ -140,7 +140,16 @@ public class Criacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void listaPlantasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPlantasMouseClicked
-
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Você deseja excluir a planta "+listaPlantas.getSelectedValue() + "?", "Excluir planta", dialogButton);
+        if(dialogResult == 0) {
+            //listaPlantas.remove(listaPlantas.getSelectedIndex());
+            int indice = listaPlantas.getSelectedIndex();
+           
+          // exclui o item selecionado
+            if(indice > -1)
+                ((DefaultListModel)(listaPlantas.getModel())).remove(indice); 
+        } 
     }//GEN-LAST:event_listaPlantasMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -153,7 +162,9 @@ public class Criacoes extends javax.swing.JFrame {
 
             PlantaListadaFacade pl = new PlantaListadaFacade(p);
 
-            listaPlantas = pl.AdicionarPlanta(listaPlantas); 
+            listaPlantas = pl.AdicionarPlanta(listaPlantas);
+            this.criar.setNome(null);
+            this.criar.setVisualizacao(null);
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
