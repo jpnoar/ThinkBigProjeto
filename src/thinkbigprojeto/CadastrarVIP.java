@@ -4,6 +4,8 @@
  */
 package thinkbigprojeto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author abreu
@@ -28,13 +30,13 @@ public class CadastrarVIP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textField5 = new thinkbigprojeto.TextField();
-        textField8 = new thinkbigprojeto.TextField();
-        textField9 = new thinkbigprojeto.TextField();
+        inputDataExpiracao = new thinkbigprojeto.TextField();
+        inputNumCartao = new thinkbigprojeto.TextField();
+        inputCVV = new thinkbigprojeto.TextField();
         botaoPadrao2 = new thinkbigprojeto.botaoPadrao();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        inputBandeira = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,50 +44,50 @@ public class CadastrarVIP extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        textField5.setBackground(new java.awt.Color(51, 92, 218));
-        textField5.setForeground(new java.awt.Color(255, 255, 255));
-        textField5.setToolTipText("");
-        textField5.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField5.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField5.setLabelText("Expira: dd/mm/AAAA");
-        textField5.setLineColor(new java.awt.Color(255, 255, 255));
-        textField5.addActionListener(new java.awt.event.ActionListener() {
+        inputDataExpiracao.setBackground(new java.awt.Color(51, 92, 218));
+        inputDataExpiracao.setForeground(new java.awt.Color(255, 255, 255));
+        inputDataExpiracao.setToolTipText("");
+        inputDataExpiracao.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputDataExpiracao.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputDataExpiracao.setLabelText("Expira: dd/mm/AAAA");
+        inputDataExpiracao.setLineColor(new java.awt.Color(255, 255, 255));
+        inputDataExpiracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField5ActionPerformed(evt);
+                inputDataExpiracaoActionPerformed(evt);
             }
         });
-        getContentPane().add(textField5);
-        textField5.setBounds(820, 300, 160, 40);
+        getContentPane().add(inputDataExpiracao);
+        inputDataExpiracao.setBounds(820, 300, 160, 40);
 
-        textField8.setBackground(new java.awt.Color(51, 92, 218));
-        textField8.setForeground(new java.awt.Color(255, 255, 255));
-        textField8.setToolTipText("");
-        textField8.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField8.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField8.setLabelText("Número do Cartão");
-        textField8.setLineColor(new java.awt.Color(255, 255, 255));
-        textField8.addActionListener(new java.awt.event.ActionListener() {
+        inputNumCartao.setBackground(new java.awt.Color(51, 92, 218));
+        inputNumCartao.setForeground(new java.awt.Color(255, 255, 255));
+        inputNumCartao.setToolTipText("");
+        inputNumCartao.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputNumCartao.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputNumCartao.setLabelText("Número do Cartão");
+        inputNumCartao.setLineColor(new java.awt.Color(255, 255, 255));
+        inputNumCartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField8ActionPerformed(evt);
+                inputNumCartaoActionPerformed(evt);
             }
         });
-        getContentPane().add(textField8);
-        textField8.setBounds(670, 250, 310, 40);
+        getContentPane().add(inputNumCartao);
+        inputNumCartao.setBounds(670, 250, 310, 40);
 
-        textField9.setBackground(new java.awt.Color(51, 92, 218));
-        textField9.setForeground(new java.awt.Color(255, 255, 255));
-        textField9.setToolTipText("");
-        textField9.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField9.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField9.setLabelText("CVV");
-        textField9.setLineColor(new java.awt.Color(255, 255, 255));
-        textField9.addActionListener(new java.awt.event.ActionListener() {
+        inputCVV.setBackground(new java.awt.Color(51, 92, 218));
+        inputCVV.setForeground(new java.awt.Color(255, 255, 255));
+        inputCVV.setToolTipText("");
+        inputCVV.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputCVV.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputCVV.setLabelText("CVV");
+        inputCVV.setLineColor(new java.awt.Color(255, 255, 255));
+        inputCVV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField9ActionPerformed(evt);
+                inputCVVActionPerformed(evt);
             }
         });
-        getContentPane().add(textField9);
-        textField9.setBounds(670, 300, 140, 40);
+        getContentPane().add(inputCVV);
+        inputCVV.setBounds(670, 300, 140, 40);
 
         botaoPadrao2.setForeground(new java.awt.Color(51, 91, 218));
         botaoPadrao2.setText("CADASTRAR");
@@ -119,18 +121,18 @@ public class CadastrarVIP extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(670, 350, 110, 16);
 
-        jComboBox1.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(56, 72, 121));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mastercard", "Visa", "Elo", "American Express", "Hipercard" }));
-        jComboBox1.setBorder(null);
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        inputBandeira.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputBandeira.setForeground(new java.awt.Color(56, 72, 121));
+        inputBandeira.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mastercard", "Visa", "Elo", "American Express", "Hipercard" }));
+        inputBandeira.setBorder(null);
+        inputBandeira.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        inputBandeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                inputBandeiraActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(670, 370, 310, 40);
+        getContentPane().add(inputBandeira);
+        inputBandeira.setBounds(670, 370, 310, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thinkbigprojeto/fundo-cadastrarvip.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -139,28 +141,39 @@ public class CadastrarVIP extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField8ActionPerformed
+    private void inputNumCartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNumCartaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField8ActionPerformed
+    }//GEN-LAST:event_inputNumCartaoActionPerformed
 
-    private void textField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField9ActionPerformed
+    private void inputCVVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCVVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField9ActionPerformed
+    }//GEN-LAST:event_inputCVVActionPerformed
 
     private void botaoPadrao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao2ActionPerformed
-        Entrar entrar = new Entrar();
-        entrar.show();
+        if(inputNumCartao.getText().equals("")||inputCVV.getText().equals("")|| inputDataExpiracao.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Algum dos campos ou todos estão vazios!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+            FactoryCliente factory = new FactoryCliente(); 
+            Usuario clienteCadastrado = factory.getCliente("", "", "", "", "", false, inputNumCartao.getText(),inputCVV.getText(), inputDataExpiracao.getText(), String.valueOf(inputBandeira.getSelectedItem()));
+            
+            JOptionPane.showMessageDialog(null, "Conta VIP cadastrada!");
+            
+            Entrar entrar = new Entrar();
+            entrar.show();
+        
+            dispose();
+        } 
         
         dispose();
     }//GEN-LAST:event_botaoPadrao2ActionPerformed
 
-    private void textField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField5ActionPerformed
+    private void inputDataExpiracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDataExpiracaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField5ActionPerformed
+    }//GEN-LAST:event_inputDataExpiracaoActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void inputBandeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBandeiraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_inputBandeiraActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Cadastrar entrar = new Cadastrar();
@@ -213,12 +226,12 @@ public class CadastrarVIP extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private thinkbigprojeto.botaoPadrao botaoPadrao2;
+    private javax.swing.JComboBox<String> inputBandeira;
+    private thinkbigprojeto.TextField inputCVV;
+    private thinkbigprojeto.TextField inputDataExpiracao;
+    private thinkbigprojeto.TextField inputNumCartao;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private thinkbigprojeto.TextField textField5;
-    private thinkbigprojeto.TextField textField8;
-    private thinkbigprojeto.TextField textField9;
     // End of variables declaration//GEN-END:variables
 }

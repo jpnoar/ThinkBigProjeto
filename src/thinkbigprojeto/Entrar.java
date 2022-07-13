@@ -4,20 +4,29 @@
  */
 package thinkbigprojeto;
 
+import javax.swing.JOptionPane;
+import jdk.jshell.spi.ExecutionControl;
+
 /**
  *
  * @author abreu
  */
 public class Entrar extends javax.swing.JFrame {
-
+    Usuario user = new Usuario();
     /**
      * Creates new form Inicial
      */
+     
+        
     public Entrar() {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        
+        
+        
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,9 +37,9 @@ public class Entrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textField5 = new thinkbigprojeto.TextField();
+        inputEmail = new thinkbigprojeto.TextField();
         botaoPadrao1 = new thinkbigprojeto.botaoPadrao();
-        passwordField1 = new thinkbigprojeto.PasswordField();
+        inputSenha = new thinkbigprojeto.PasswordField();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -39,20 +48,20 @@ public class Entrar extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        textField5.setBackground(new java.awt.Color(51, 92, 218));
-        textField5.setForeground(new java.awt.Color(255, 255, 255));
-        textField5.setToolTipText("");
-        textField5.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField5.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField5.setLabelText("Email");
-        textField5.setLineColor(new java.awt.Color(255, 255, 255));
-        textField5.addActionListener(new java.awt.event.ActionListener() {
+        inputEmail.setBackground(new java.awt.Color(51, 92, 218));
+        inputEmail.setForeground(new java.awt.Color(255, 255, 255));
+        inputEmail.setToolTipText("");
+        inputEmail.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputEmail.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputEmail.setLabelText("Email");
+        inputEmail.setLineColor(new java.awt.Color(255, 255, 255));
+        inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField5ActionPerformed(evt);
+                inputEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(textField5);
-        textField5.setBounds(670, 250, 300, 48);
+        getContentPane().add(inputEmail);
+        inputEmail.setBounds(670, 250, 300, 48);
 
         botaoPadrao1.setForeground(new java.awt.Color(51, 91, 218));
         botaoPadrao1.setText("ENTRAR");
@@ -69,19 +78,19 @@ public class Entrar extends javax.swing.JFrame {
         getContentPane().add(botaoPadrao1);
         botaoPadrao1.setBounds(670, 400, 300, 30);
 
-        passwordField1.setBackground(new java.awt.Color(51, 92, 213));
-        passwordField1.setForeground(new java.awt.Color(255, 255, 255));
-        passwordField1.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        passwordField1.setLabelText("Senha");
-        passwordField1.setLineColor(new java.awt.Color(255, 255, 255));
-        passwordField1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        passwordField1.addActionListener(new java.awt.event.ActionListener() {
+        inputSenha.setBackground(new java.awt.Color(51, 92, 213));
+        inputSenha.setForeground(new java.awt.Color(255, 255, 255));
+        inputSenha.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputSenha.setLabelText("Senha");
+        inputSenha.setLineColor(new java.awt.Color(255, 255, 255));
+        inputSenha.setSelectionColor(new java.awt.Color(255, 255, 255));
+        inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordField1ActionPerformed(evt);
+                inputSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordField1);
-        passwordField1.setBounds(670, 320, 300, 48);
+        getContentPane().add(inputSenha);
+        inputSenha.setBounds(670, 320, 300, 48);
 
         jButton2.setBackground(new java.awt.Color(51, 92, 218));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thinkbigprojeto/botao-voltar.jpg"))); // NOI18N
@@ -101,20 +110,29 @@ public class Entrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField5ActionPerformed
+    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField5ActionPerformed
+    }//GEN-LAST:event_inputEmailActionPerformed
 
     private void botaoPadrao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao1ActionPerformed
-        Criacoes cria = new Criacoes();
-        cria.show();
         
-        dispose();
+        if((inputEmail.getText().equals("qwerty") && String.valueOf(inputSenha.getPassword()).equals("12345")) || 
+                (inputEmail.getText().equals(user.login) && String.valueOf(inputSenha.getPassword()).equals(user.senha))){
+            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
+            Criacoes cria = new Criacoes();
+            cria.show();
+            dispose();
+        }else if(inputEmail.getText().equals("") || String.valueOf(inputSenha.getPassword()).equals("")){
+            JOptionPane.showMessageDialog(null, "Algum dos campos ou os dois estão vazios!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Email e/ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_botaoPadrao1ActionPerformed
 
-    private void passwordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField1ActionPerformed
+    private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordField1ActionPerformed
+    }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Inicial entrar = new Inicial();
@@ -152,6 +170,7 @@ public class Entrar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Entrar().setVisible(true);
@@ -161,9 +180,9 @@ public class Entrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private thinkbigprojeto.botaoPadrao botaoPadrao1;
+    private thinkbigprojeto.TextField inputEmail;
+    private thinkbigprojeto.PasswordField inputSenha;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private thinkbigprojeto.PasswordField passwordField1;
-    private thinkbigprojeto.TextField textField5;
     // End of variables declaration//GEN-END:variables
 }

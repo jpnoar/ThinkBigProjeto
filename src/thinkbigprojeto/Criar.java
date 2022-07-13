@@ -4,12 +4,44 @@
  */
 package thinkbigprojeto;
 
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author abreu
  */
 public class Criar extends javax.swing.JFrame {
+    private Planta plantaCriada;
+    private String nome;
+    private String visualizacao;
+    
+    private Visualizacao v = new Visualizacao();
+    
+    public Planta getPlantaCriada() {
+        return plantaCriada;
+    }
 
+    public void setPlantaCriada(Planta plantaCriada) {
+        this.plantaCriada = plantaCriada;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getVisualizacao() {
+        return visualizacao;
+    }
+
+    public void setVisualizacao(String visualizacao) {
+        this.visualizacao = visualizacao;
+    }
+    
     /**
      * Creates new form Inicial
      */
@@ -30,11 +62,14 @@ public class Criar extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        textField8 = new thinkbigprojeto.TextField();
+        inputNomePlanta = new thinkbigprojeto.TextField();
         botaoPadrao1 = new thinkbigprojeto.botaoPadrao();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        inputVisualizacao = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        paisagem = new javax.swing.JLabel();
+        retrato = new javax.swing.JLabel();
+        quadrado = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,21 +89,21 @@ public class Criar extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(40, 190, 110, 16);
 
-        textField8.setBackground(new java.awt.Color(235, 239, 250));
-        textField8.setForeground(new java.awt.Color(51, 91, 218));
-        textField8.setToolTipText("");
-        textField8.setCaretColor(new java.awt.Color(51, 91, 218));
-        textField8.setDisabledTextColor(new java.awt.Color(51, 91, 218));
-        textField8.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField8.setLabelText("");
-        textField8.setLineColor(new java.awt.Color(51, 91, 218));
-        textField8.addActionListener(new java.awt.event.ActionListener() {
+        inputNomePlanta.setBackground(new java.awt.Color(235, 239, 250));
+        inputNomePlanta.setForeground(new java.awt.Color(51, 91, 218));
+        inputNomePlanta.setToolTipText("");
+        inputNomePlanta.setCaretColor(new java.awt.Color(51, 91, 218));
+        inputNomePlanta.setDisabledTextColor(new java.awt.Color(51, 91, 218));
+        inputNomePlanta.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputNomePlanta.setLabelText("");
+        inputNomePlanta.setLineColor(new java.awt.Color(51, 91, 218));
+        inputNomePlanta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField8ActionPerformed(evt);
+                inputNomePlantaActionPerformed(evt);
             }
         });
-        getContentPane().add(textField8);
-        textField8.setBounds(40, 200, 410, 40);
+        getContentPane().add(inputNomePlanta);
+        inputNomePlanta.setBounds(40, 200, 410, 40);
 
         botaoPadrao1.setBackground(new java.awt.Color(56, 72, 121));
         botaoPadrao1.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,18 +123,28 @@ public class Criar extends javax.swing.JFrame {
         getContentPane().add(botaoPadrao1);
         botaoPadrao1.setBounds(40, 480, 410, 30);
 
-        jComboBox1.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(56, 72, 121));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paisagem", "Retrato", "Quadrado" }));
-        jComboBox1.setBorder(null);
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+        inputVisualizacao.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputVisualizacao.setForeground(new java.awt.Color(56, 72, 121));
+        inputVisualizacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paisagem", "Retrato", "Quadrado" }));
+        inputVisualizacao.setBorder(null);
+        inputVisualizacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        inputVisualizacao.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                inputVisualizacaoItemStateChanged(evt);
             }
         });
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(40, 270, 410, 40);
+        inputVisualizacao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inputVisualizacaoMouseClicked(evt);
+            }
+        });
+        inputVisualizacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputVisualizacaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inputVisualizacao);
+        inputVisualizacao.setBounds(40, 270, 410, 40);
 
         jPanel1.setBackground(new java.awt.Color(235, 239, 250));
         getContentPane().add(jPanel1);
@@ -116,6 +161,18 @@ public class Criar extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(30, 570, 60, 26);
 
+        paisagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thinkbigprojeto/paisagem.png"))); // NOI18N
+        getContentPane().add(paisagem);
+        paisagem.setBounds(190, 340, 100, 100);
+
+        retrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thinkbigprojeto/retrato.png"))); // NOI18N
+        getContentPane().add(retrato);
+        retrato.setBounds(190, 340, 100, 100);
+
+        quadrado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thinkbigprojeto/quadrado.png"))); // NOI18N
+        getContentPane().add(quadrado);
+        quadrado.setBounds(190, 340, 100, 100);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thinkbigprojeto/fundo-criar.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1130, 620);
@@ -123,27 +180,56 @@ public class Criar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField8ActionPerformed
+    private void inputNomePlantaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomePlantaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField8ActionPerformed
+    }//GEN-LAST:event_inputNomePlantaActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void inputVisualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputVisualizacaoActionPerformed
+        
+    }//GEN-LAST:event_inputVisualizacaoActionPerformed
 
     private void botaoPadrao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao1ActionPerformed
-        Criacoes entrar = new Criacoes();
-        entrar.show();
-        
+        this.nome = inputNomePlanta.getText();
+        this.visualizacao = String.valueOf(inputVisualizacao.getSelectedItem());
+
         dispose();
+        
+        //criarPlanta(Jlist, nome, visualizacao);
     }//GEN-LAST:event_botaoPadrao1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Criacoes entrar = new Criacoes();
-        entrar.show();
-        
+
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void inputVisualizacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputVisualizacaoMouseClicked
+
+    }//GEN-LAST:event_inputVisualizacaoMouseClicked
+
+    private void inputVisualizacaoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_inputVisualizacaoItemStateChanged
+
+        switch(inputVisualizacao.getSelectedIndex()){
+            case 0:
+                v.trocarParaPaisagem();
+                paisagem.setVisible(true);
+                retrato.setVisible(false);
+                quadrado.setVisible(false);
+                break;
+            case 1:
+                v.trocarParaRetrato();
+                paisagem.setVisible(false);
+                retrato.setVisible(true);
+                quadrado.setVisible(false);
+                break;
+            case 2: 
+                v.trocarParaQuadrada();
+                paisagem.setVisible(false);
+                retrato.setVisible(false);
+                quadrado.setVisible(true);
+                break;
+        }
+        
+    }//GEN-LAST:event_inputVisualizacaoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -189,12 +275,15 @@ public class Criar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private thinkbigprojeto.botaoPadrao botaoPadrao1;
+    private thinkbigprojeto.TextField inputNomePlanta;
+    private javax.swing.JComboBox<String> inputVisualizacao;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private thinkbigprojeto.TextField textField8;
+    private javax.swing.JLabel paisagem;
+    private javax.swing.JLabel quadrado;
+    private javax.swing.JLabel retrato;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,7 +33,6 @@ public class Inicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1130, 650));
-        setPreferredSize(new java.awt.Dimension(1130, 650));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -77,6 +76,7 @@ public class Inicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPadrao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao1ActionPerformed
+
         Entrar entrar = new Entrar();
         entrar.show();
         

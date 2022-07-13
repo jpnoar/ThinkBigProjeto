@@ -4,12 +4,16 @@
  */
 package thinkbigprojeto;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+
 /**
  *
  * @author abreu
  */
 public class Criacoes extends javax.swing.JFrame {
-
+    Criar criar;
     /**
      * Creates new form Inicial
      */
@@ -17,8 +21,11 @@ public class Criacoes extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        this.criar = new Criar();
+        
         scrollPlantas.setVerticalScrollBar(new ScrollBarCustom());
-
+        
+        
         
     }
 
@@ -32,6 +39,7 @@ public class Criacoes extends javax.swing.JFrame {
     private void initComponents() {
 
         botaoPadrao1 = new thinkbigprojeto.botaoPadrao();
+        msg = new javax.swing.JLabel();
         scrollPlantas = new javax.swing.JScrollPane();
         listaPlantas = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
@@ -40,6 +48,18 @@ public class Criacoes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1130, 650));
         setResizable(false);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         botaoPadrao1.setBackground(new java.awt.Color(56, 72, 121));
@@ -59,18 +79,29 @@ public class Criacoes extends javax.swing.JFrame {
         getContentPane().add(botaoPadrao1);
         botaoPadrao1.setBounds(890, 110, 190, 40);
 
+        msg.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        msg.setForeground(new java.awt.Color(138, 136, 158));
+        msg.setText("Não há nenhuma criação de planta.");
+        getContentPane().add(msg);
+        msg.setBounds(420, 380, 340, 40);
+
         listaPlantas.setBorder(null);
         listaPlantas.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         listaPlantas.setForeground(new java.awt.Color(56, 72, 121));
-        listaPlantas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Casa Manuel Medeiros", "Apartamento Luis", "Fachada da casa" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listaPlantas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaPlantas.setAlignmentX(1.0F);
         listaPlantas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         listaPlantas.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        listaPlantas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaPlantasMouseClicked(evt);
+            }
+        });
+        listaPlantas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaPlantasValueChanged(evt);
+            }
+        });
         scrollPlantas.setViewportView(listaPlantas);
 
         getContentPane().add(scrollPlantas);
@@ -95,10 +126,10 @@ public class Criacoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPadrao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao1ActionPerformed
-        Criar criar = new Criar();
-        criar.show();
+        this.criar.setVisible(true);
+        
 
-        dispose();
+        
     }//GEN-LAST:event_botaoPadrao1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -107,6 +138,28 @@ public class Criacoes extends javax.swing.JFrame {
         
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void listaPlantasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaPlantasMouseClicked
+
+    }//GEN-LAST:event_listaPlantasMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        if(this.criar.getNome()!= null && this.criar.getVisualizacao() != null){
+            Planta p = new Planta(this.criar.getNome(), this.criar.getVisualizacao());
+
+            PlantaListadaFacade pl = new PlantaListadaFacade(p);
+
+            listaPlantas = pl.AdicionarPlanta(listaPlantas); 
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void listaPlantasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPlantasValueChanged
+        msg.setVisible(false);
+    }//GEN-LAST:event_listaPlantasValueChanged
 
     /**
      * @param args the command line arguments
@@ -151,6 +204,7 @@ public class Criacoes extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> listaPlantas;
+    private javax.swing.JLabel msg;
     private javax.swing.JScrollPane scrollPlantas;
     // End of variables declaration//GEN-END:variables
 }

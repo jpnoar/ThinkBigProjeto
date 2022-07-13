@@ -4,6 +4,8 @@
  */
 package thinkbigprojeto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author abreu
@@ -28,14 +30,14 @@ public class Cadastrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textField5 = new thinkbigprojeto.TextField();
+        inputSobrenome = new thinkbigprojeto.TextField();
         botaoPadrao1 = new thinkbigprojeto.botaoPadrao();
-        passwordField1 = new thinkbigprojeto.PasswordField();
-        textField6 = new thinkbigprojeto.TextField();
-        textField7 = new thinkbigprojeto.TextField();
-        textField8 = new thinkbigprojeto.TextField();
-        textField9 = new thinkbigprojeto.TextField();
-        textField10 = new thinkbigprojeto.TextField();
+        inputSenha = new thinkbigprojeto.PasswordField();
+        inputEndereco = new thinkbigprojeto.TextField();
+        inputCPF = new thinkbigprojeto.TextField();
+        inputEmail = new thinkbigprojeto.TextField();
+        inputNome = new thinkbigprojeto.TextField();
+        inputTelefone = new thinkbigprojeto.TextField();
         botaoPadrao2 = new thinkbigprojeto.botaoPadrao();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -45,20 +47,20 @@ public class Cadastrar extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        textField5.setBackground(new java.awt.Color(51, 92, 218));
-        textField5.setForeground(new java.awt.Color(255, 255, 255));
-        textField5.setToolTipText("");
-        textField5.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField5.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField5.setLabelText("Sobrenome");
-        textField5.setLineColor(new java.awt.Color(255, 255, 255));
-        textField5.addActionListener(new java.awt.event.ActionListener() {
+        inputSobrenome.setBackground(new java.awt.Color(51, 92, 218));
+        inputSobrenome.setForeground(new java.awt.Color(255, 255, 255));
+        inputSobrenome.setToolTipText("");
+        inputSobrenome.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputSobrenome.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputSobrenome.setLabelText("Sobrenome");
+        inputSobrenome.setLineColor(new java.awt.Color(255, 255, 255));
+        inputSobrenome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField5ActionPerformed(evt);
+                inputSobrenomeActionPerformed(evt);
             }
         });
-        getContentPane().add(textField5);
-        textField5.setBounds(820, 300, 150, 40);
+        getContentPane().add(inputSobrenome);
+        inputSobrenome.setBounds(820, 300, 150, 40);
 
         botaoPadrao1.setForeground(new java.awt.Color(255, 255, 255));
         botaoPadrao1.setText("CADASTRAR CONTA VIP");
@@ -76,94 +78,94 @@ public class Cadastrar extends javax.swing.JFrame {
         getContentPane().add(botaoPadrao1);
         botaoPadrao1.setBounds(670, 510, 300, 30);
 
-        passwordField1.setBackground(new java.awt.Color(51, 92, 213));
-        passwordField1.setForeground(new java.awt.Color(255, 255, 255));
-        passwordField1.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        passwordField1.setLabelText("Senha");
-        passwordField1.setLineColor(new java.awt.Color(255, 255, 255));
-        passwordField1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        passwordField1.addActionListener(new java.awt.event.ActionListener() {
+        inputSenha.setBackground(new java.awt.Color(51, 92, 213));
+        inputSenha.setForeground(new java.awt.Color(255, 255, 255));
+        inputSenha.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputSenha.setLabelText("Senha");
+        inputSenha.setLineColor(new java.awt.Color(255, 255, 255));
+        inputSenha.setSelectionColor(new java.awt.Color(255, 255, 255));
+        inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordField1ActionPerformed(evt);
+                inputSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordField1);
-        passwordField1.setBounds(670, 250, 300, 40);
+        getContentPane().add(inputSenha);
+        inputSenha.setBounds(670, 250, 300, 40);
 
-        textField6.setBackground(new java.awt.Color(51, 92, 218));
-        textField6.setForeground(new java.awt.Color(255, 255, 255));
-        textField6.setToolTipText("");
-        textField6.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField6.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField6.setLabelText("Endereço");
-        textField6.setLineColor(new java.awt.Color(255, 255, 255));
-        textField6.addActionListener(new java.awt.event.ActionListener() {
+        inputEndereco.setBackground(new java.awt.Color(51, 92, 218));
+        inputEndereco.setForeground(new java.awt.Color(255, 255, 255));
+        inputEndereco.setToolTipText("");
+        inputEndereco.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputEndereco.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputEndereco.setLabelText("Endereço");
+        inputEndereco.setLineColor(new java.awt.Color(255, 255, 255));
+        inputEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField6ActionPerformed(evt);
+                inputEnderecoActionPerformed(evt);
             }
         });
-        getContentPane().add(textField6);
-        textField6.setBounds(670, 350, 300, 40);
+        getContentPane().add(inputEndereco);
+        inputEndereco.setBounds(670, 350, 300, 40);
 
-        textField7.setBackground(new java.awt.Color(51, 92, 218));
-        textField7.setForeground(new java.awt.Color(255, 255, 255));
-        textField7.setToolTipText("");
-        textField7.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField7.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField7.setLabelText("CPF");
-        textField7.setLineColor(new java.awt.Color(255, 255, 255));
-        textField7.addActionListener(new java.awt.event.ActionListener() {
+        inputCPF.setBackground(new java.awt.Color(51, 92, 218));
+        inputCPF.setForeground(new java.awt.Color(255, 255, 255));
+        inputCPF.setToolTipText("");
+        inputCPF.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputCPF.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputCPF.setLabelText("CPF");
+        inputCPF.setLineColor(new java.awt.Color(255, 255, 255));
+        inputCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField7ActionPerformed(evt);
+                inputCPFActionPerformed(evt);
             }
         });
-        getContentPane().add(textField7);
-        textField7.setBounds(820, 400, 150, 40);
+        getContentPane().add(inputCPF);
+        inputCPF.setBounds(820, 400, 150, 40);
 
-        textField8.setBackground(new java.awt.Color(51, 92, 218));
-        textField8.setForeground(new java.awt.Color(255, 255, 255));
-        textField8.setToolTipText("");
-        textField8.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField8.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField8.setLabelText("Email");
-        textField8.setLineColor(new java.awt.Color(255, 255, 255));
-        textField8.addActionListener(new java.awt.event.ActionListener() {
+        inputEmail.setBackground(new java.awt.Color(51, 92, 218));
+        inputEmail.setForeground(new java.awt.Color(255, 255, 255));
+        inputEmail.setToolTipText("");
+        inputEmail.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputEmail.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputEmail.setLabelText("Email");
+        inputEmail.setLineColor(new java.awt.Color(255, 255, 255));
+        inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField8ActionPerformed(evt);
+                inputEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(textField8);
-        textField8.setBounds(670, 198, 300, 40);
+        getContentPane().add(inputEmail);
+        inputEmail.setBounds(670, 198, 300, 40);
 
-        textField9.setBackground(new java.awt.Color(51, 92, 218));
-        textField9.setForeground(new java.awt.Color(255, 255, 255));
-        textField9.setToolTipText("");
-        textField9.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField9.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField9.setLabelText("Nome");
-        textField9.setLineColor(new java.awt.Color(255, 255, 255));
-        textField9.addActionListener(new java.awt.event.ActionListener() {
+        inputNome.setBackground(new java.awt.Color(51, 92, 218));
+        inputNome.setForeground(new java.awt.Color(255, 255, 255));
+        inputNome.setToolTipText("");
+        inputNome.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputNome.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputNome.setLabelText("Nome");
+        inputNome.setLineColor(new java.awt.Color(255, 255, 255));
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField9ActionPerformed(evt);
+                inputNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(textField9);
-        textField9.setBounds(670, 300, 140, 40);
+        getContentPane().add(inputNome);
+        inputNome.setBounds(670, 300, 140, 40);
 
-        textField10.setBackground(new java.awt.Color(51, 92, 218));
-        textField10.setForeground(new java.awt.Color(255, 255, 255));
-        textField10.setToolTipText("");
-        textField10.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        textField10.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        textField10.setLabelText("Telefone");
-        textField10.setLineColor(new java.awt.Color(255, 255, 255));
-        textField10.addActionListener(new java.awt.event.ActionListener() {
+        inputTelefone.setBackground(new java.awt.Color(51, 92, 218));
+        inputTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        inputTelefone.setToolTipText("");
+        inputTelefone.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        inputTelefone.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        inputTelefone.setLabelText("Telefone");
+        inputTelefone.setLineColor(new java.awt.Color(255, 255, 255));
+        inputTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField10ActionPerformed(evt);
+                inputTelefoneActionPerformed(evt);
             }
         });
-        getContentPane().add(textField10);
-        textField10.setBounds(670, 400, 140, 40);
+        getContentPane().add(inputTelefone);
+        inputTelefone.setBounds(670, 400, 140, 40);
 
         botaoPadrao2.setForeground(new java.awt.Color(51, 91, 218));
         botaoPadrao2.setText("CADASTRAR CONTA GRATUITA");
@@ -198,46 +200,59 @@ public class Cadastrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField5ActionPerformed
+    private void inputSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSobrenomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField5ActionPerformed
+    }//GEN-LAST:event_inputSobrenomeActionPerformed
 
     private void botaoPadrao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao1ActionPerformed
+        if(inputNome.getText().equals("")||inputSobrenome.getText().equals("")|| inputEndereco.getText().equals("")|| inputTelefone.getText().equals("")||inputCPF.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Algum dos campos ou todos estão vazios!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
         CadastrarVIP entrar = new CadastrarVIP();
         entrar.show();
 
         dispose();
+        }
     }//GEN-LAST:event_botaoPadrao1ActionPerformed
 
-    private void passwordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField1ActionPerformed
+    private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordField1ActionPerformed
+    }//GEN-LAST:event_inputSenhaActionPerformed
 
-    private void textField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField6ActionPerformed
+    private void inputEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEnderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField6ActionPerformed
+    }//GEN-LAST:event_inputEnderecoActionPerformed
 
-    private void textField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField7ActionPerformed
+    private void inputCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField7ActionPerformed
+    }//GEN-LAST:event_inputCPFActionPerformed
 
-    private void textField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField8ActionPerformed
+    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField8ActionPerformed
+    }//GEN-LAST:event_inputEmailActionPerformed
 
-    private void textField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField9ActionPerformed
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField9ActionPerformed
+    }//GEN-LAST:event_inputNomeActionPerformed
 
-    private void textField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField10ActionPerformed
+    private void inputTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField10ActionPerformed
+    }//GEN-LAST:event_inputTelefoneActionPerformed
 
     private void botaoPadrao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPadrao2ActionPerformed
-        Entrar entrar = new Entrar();
-        entrar.show();
+        if(inputNome.getText().equals("")||inputSobrenome.getText().equals("")|| inputEndereco.getText().equals("")|| inputTelefone.getText().equals("")||inputCPF.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Algum dos campos ou todos estão vazios!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }else{
+            FactoryCliente factory = new FactoryCliente();
+            Usuario clienteCadastrado = factory.getCliente(inputNome.getText(), inputSobrenome.getText(), inputEndereco.getText(), inputTelefone.getText(), inputCPF.getText(), false, "", "", "", "");
+            
+            JOptionPane.showMessageDialog(null, "Conta normal cadastrada!");
+            
+            Entrar entrar = new Entrar();
+            entrar.show();
         
-        dispose();
+            dispose();
+        } 
     }//GEN-LAST:event_botaoPadrao2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -288,14 +303,14 @@ public class Cadastrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private thinkbigprojeto.botaoPadrao botaoPadrao1;
     private thinkbigprojeto.botaoPadrao botaoPadrao2;
+    private thinkbigprojeto.TextField inputCPF;
+    private thinkbigprojeto.TextField inputEmail;
+    private thinkbigprojeto.TextField inputEndereco;
+    private thinkbigprojeto.TextField inputNome;
+    private thinkbigprojeto.PasswordField inputSenha;
+    private thinkbigprojeto.TextField inputSobrenome;
+    private thinkbigprojeto.TextField inputTelefone;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private thinkbigprojeto.PasswordField passwordField1;
-    private thinkbigprojeto.TextField textField10;
-    private thinkbigprojeto.TextField textField5;
-    private thinkbigprojeto.TextField textField6;
-    private thinkbigprojeto.TextField textField7;
-    private thinkbigprojeto.TextField textField8;
-    private thinkbigprojeto.TextField textField9;
     // End of variables declaration//GEN-END:variables
 }
